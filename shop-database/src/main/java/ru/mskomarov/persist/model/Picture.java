@@ -1,5 +1,4 @@
-import ru.mskomarov.persist.model.PictureData;
-import ru.mskomarov.persist.model.Product;
+package ru.mskomarov.persist.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,8 +19,8 @@ public class Picture implements Serializable {
     @Column(name = "content_type", nullable = false)
     private String contentType;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL, optional = false, orphanRemoval = true)
-    @JoinColumn(name="picture_data_id")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+    @JoinColumn(name = "picture_data_id")
     private PictureData pictureData;
 
     @ManyToMany(mappedBy = "pictures")
